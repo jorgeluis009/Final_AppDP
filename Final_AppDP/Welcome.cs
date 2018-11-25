@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QRCodeEncoderDecoderLibrary;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Final_AppDP.Classes;
 
 namespace Final_AppDP
 {
@@ -41,26 +43,24 @@ namespace Final_AppDP
                         string Result = QRCode.ByteArrayToStr(DataByteArray[0]);
                         order += Result + "\n";
                         orders.Add(Result);                        
+                        Store deserializedProduct = JsonConvert.DeserializeObject<Store>(Result);
                     }
-                    catch (Exception){ }
+                    catch (Exception ex){ label3.Text = ex.Message; }
                 }
             }
-            label3.Text = order;                      
+            label3.Text = order;                        
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Store store = new Store(2,"Costco");
+            string output = JsonConvert.SerializeObject(store);
             QREncoder QRCodeEncoder = new QREncoder();            
-            QRCodeEncoder.Encode(ErrorCorrection.M, "This is a message, hello.");            
+            QRCodeEncoder.Encode(ErrorCorrection.M, output);            
             Bitmap QRCodeImage = QRCodeToBitmap.CreateBitmap(QRCodeEncoder, 4, 8);            
-            FileStream FS = new FileStream("TestQR.png", FileMode.Create);
+            FileStream FS = new FileStream("TestQR2.png", FileMode.Create);
             QRCodeImage.Save(FS, ImageFormat.Png);
-            FS.Close();
-            dynamic json = JsonConvert.DeserializeObject("[{" +
-                                "\"idStore\": \"1\"," +
-                                "\"storeName\": \"Florida Market\","+
-                                "\"products\": []"+
-                            "}]\"");
+            FS.Close();           
         }
     }
 }
