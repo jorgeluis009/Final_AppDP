@@ -12,10 +12,11 @@ namespace Final_AppDP.Classes
         public string storeName { get; set; }
         public Product[] products { get; set; }
 
-        public Store(int id, string name)
+        public Store(int id, string name, Product[] order)
         {
             idStore = id;
             storeName = name;
+            products = order;
         }
     }
 }

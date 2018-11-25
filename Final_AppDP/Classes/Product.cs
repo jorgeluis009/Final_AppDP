@@ -11,5 +11,12 @@ namespace Final_AppDP.Classes
         public int idProduct { get; set; }
         public string name { get; set; }
         public int quantity { get; set; }
+
+        public Product(int id, string nameP, int qty)
+        {
+            idProduct = id;
+            name = nameP;
+            quantity = qty;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Final_AppDP
             open.Multiselect = true;
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             QRDecoder QRCodeDecoder = new QRDecoder();
-            BindingList<string> orders = new BindingList<string>();
+            BindingList<Store> stores = new BindingList<Store>();
             string order = "";
             if (open.ShowDialog() == DialogResult.OK)
             {
@@ -41,9 +41,13 @@ namespace Final_AppDP
                     try
                     {                        
                         string Result = QRCode.ByteArrayToStr(DataByteArray[0]);
-                        order += Result + "\n";
-                        orders.Add(Result);                        
-                        Store deserializedProduct = JsonConvert.DeserializeObject<Store>(Result);
+                        order += Result + "\n";                                         
+                        Store store = JsonConvert.DeserializeObject<Store>(Result);
+                        stores.Add(store);
+                        if (store.products == null)
+                        {
+
+                        }
                     }
                     catch (Exception ex){ label3.Text = ex.Message; }
                 }
@@ -53,7 +57,9 @@ namespace Final_AppDP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Store store = new Store(2,"Costco");
+            Product[] order = new Product[1];
+            order[0] = new Product(1,"Sodas",50);
+            Store store = new Store(2,"Costco",order);
             string output = JsonConvert.SerializeObject(store);
             QREncoder QRCodeEncoder = new QREncoder();            
             QRCodeEncoder.Encode(ErrorCorrection.M, output);            
