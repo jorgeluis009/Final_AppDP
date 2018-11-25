@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QRCodeEncoderDecoderLibrary;
+using Newtonsoft.Json;
 
 namespace Final_AppDP
 {
@@ -55,6 +56,11 @@ namespace Final_AppDP
             FileStream FS = new FileStream("TestQR.png", FileMode.Create);
             QRCodeImage.Save(FS, ImageFormat.Png);
             FS.Close();
+            dynamic json = JsonConvert.DeserializeObject("[{" +
+                                "\"idStore\": \"1\"," +
+                                "\"storeName\": \"Florida Market\","+
+                                "\"products\": []"+
+                            "}]\"");
         }
     }
 }
