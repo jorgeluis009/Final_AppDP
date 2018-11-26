@@ -49,9 +49,9 @@ namespace Final_AppDP
             QREncoder QRCodeEncoder = new QREncoder();
             QRCodeEncoder.Encode(ErrorCorrection.M, output);
             Bitmap QRCodeImage = QRCodeToBitmap.CreateBitmap(QRCodeEncoder, 4, 8);
-            FileStream FS = new FileStream(auxStore.storeName + ".png", FileMode.Create);
+            FileStream FS = new FileStream(auxStore.storeName + ".png", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
             QRCodeImage.Save(FS, ImageFormat.Png);
-            FS.Close();
+            FS.Close();            
         }
     }
 }
