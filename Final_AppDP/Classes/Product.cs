@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_AppDP.Classes
 {
-    class Product
+    public class Product
     {
         public int idProduct { get; set; }
         public string name { get; set; }

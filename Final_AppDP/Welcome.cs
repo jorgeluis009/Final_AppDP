@@ -35,8 +35,7 @@ namespace Final_AppDP
             {
                 foreach (String file in open.FileNames)
                 {
-                    Bitmap QRImg = new Bitmap(file);
-                    //pictureBox1.Image = new Bitmap(QRImg);                    
+                    Bitmap QRImg = new Bitmap(file);                                      
                     byte[][] DataByteArray = QRCodeDecoder.ImageDecoder(QRImg);
                     try
                     {                        
@@ -46,27 +45,14 @@ namespace Final_AppDP
                         stores.Add(store);
                         if (store.products == null)
                         {
-
+                            MakeOrder make = new MakeOrder(store);
+                            make.Show();
                         }
                     }
                     catch (Exception ex){ label3.Text = ex.Message; }
                 }
             }
             label3.Text = order;                        
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Product[] order = new Product[1];
-            order[0] = new Product(1,"Sodas",50);
-            Store store = new Store(2,"Costco",order);
-            string output = JsonConvert.SerializeObject(store);
-            QREncoder QRCodeEncoder = new QREncoder();            
-            QRCodeEncoder.Encode(ErrorCorrection.M, output);            
-            Bitmap QRCodeImage = QRCodeToBitmap.CreateBitmap(QRCodeEncoder, 4, 8);            
-            FileStream FS = new FileStream("TestQR2.png", FileMode.Create);
-            QRCodeImage.Save(FS, ImageFormat.Png);
-            FS.Close();           
-        }
+        }       
     }
 }
