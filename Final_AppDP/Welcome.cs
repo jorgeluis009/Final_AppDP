@@ -29,8 +29,7 @@ namespace Final_AppDP
             OpenFileDialog open = new OpenFileDialog();
             open.Multiselect = true;            
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";            
-            BindingList<Store> stores = new BindingList<Store>();
-            string order = "";
+            BindingList<Store> stores = new BindingList<Store>();            
             if (open.ShowDialog() == DialogResult.OK)
             {
                 foreach (string file in open.FileNames)
@@ -49,17 +48,23 @@ namespace Final_AppDP
                         if (result == DialogResult.OK)
                             stores[i] = make.auxStore;
                     }
-                }
-                order += stores[i].ToString() + "\n";
-            }
-            label3.Text = order;            
+                }                
+            }            
+            var source = new BindingSource(stores, null);
+            dgvStores.DataSource = source;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             QRAdapter adapter = new QRAdapter();
-            Store auxStore = new Store(1, "Walmart");
+            Store auxStore = new Store(4, "Aurrera");
             adapter.SetStore(auxStore);
+        }
+
+        private void btnDeliver_Click(object sender, EventArgs e)
+        {
+            Deliver deliver = new Deliver();
+            deliver.ShowDialog();
         }
     }
 }

@@ -52,10 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BreadTruck.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\QRAdapter.cs" />
     <Compile Include="Classes\QRTarget.cs" />
+    <Compile Include="Classes\SodasTruck.cs" />
     <Compile Include="Classes\Store.cs" />
+    <Compile Include="Classes\Truck.cs" />
+    <Compile Include="Classes\VegetablesTruck.cs" />
+    <Compile Include="Deliver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deliver.Designer.cs">
+      <DependentUpon>Deliver.cs</DependentUpon>
+    </Compile>
     <Compile Include="MakeOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Deliver.resx">
+      <DependentUpon>Deliver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MakeOrder.resx">
       <DependentUpon>MakeOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,7 +115,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Images\Bread.png" />
     <Content Include="Images\QR.png" />
+    <Content Include="Images\Soda.png" />
+    <Content Include="Images\Vegetables.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,8 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dgvStores = new System.Windows.Forms.DataGridView();
+            this.btnDeliver = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,16 +69,6 @@
             this.label3.Size = new System.Drawing.Size(0, 21);
             this.label3.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Final_AppDP.Properties.Resources.QR;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(365, 9);
@@ -86,11 +79,42 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dgvStores
+            // 
+            this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStores.Location = new System.Drawing.Point(68, 105);
+            this.dgvStores.Name = "dgvStores";
+            this.dgvStores.Size = new System.Drawing.Size(239, 150);
+            this.dgvStores.TabIndex = 5;
+            // 
+            // btnDeliver
+            // 
+            this.btnDeliver.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeliver.Location = new System.Drawing.Point(240, 278);
+            this.btnDeliver.Name = "btnDeliver";
+            this.btnDeliver.Size = new System.Drawing.Size(101, 35);
+            this.btnDeliver.TabIndex = 6;
+            this.btnDeliver.Text = "Deliver";
+            this.btnDeliver.UseVisualStyleBackColor = true;
+            this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Final_AppDP.Properties.Resources.QR;
+            this.pictureBox1.Location = new System.Drawing.Point(57, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 222);
+            this.ClientSize = new System.Drawing.Size(353, 325);
+            this.Controls.Add(this.btnDeliver);
+            this.Controls.Add(this.dgvStores);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -98,6 +122,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Welcome";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,6 +136,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvStores;
+        private System.Windows.Forms.Button btnDeliver;
     }
 }
 
