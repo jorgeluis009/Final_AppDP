@@ -126,6 +126,7 @@
             // 
             // btnDeliver
             // 
+            this.btnDeliver.Enabled = false;
             this.btnDeliver.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeliver.Location = new System.Drawing.Point(188, 287);
             this.btnDeliver.Name = "btnDeliver";

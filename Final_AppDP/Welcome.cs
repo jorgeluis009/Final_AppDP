@@ -17,7 +17,8 @@ using Final_AppDP.Classes;
 namespace Final_AppDP
 {
     public partial class Welcome : Form
-    {        
+    {
+        BindingList<Store> storesGlobal = new BindingList<Store>();
         public Welcome()
         {
             InitializeComponent();
@@ -35,9 +36,11 @@ namespace Final_AppDP
                 foreach (string file in open.FileNames)
                 {
                     Store store = adapter.GetStore(file);
+                    store.CalculateAmount();
                     stores.Add(store);                        
                 }
             }
+            var sortedStores = new BindingList<Store>(stores.OrderBy(x => -x.totalPrice).ToList());
             /*for(int i = 0; i < stores.Count; i++)
             {
                 if (stores[i].products == null)
@@ -49,7 +52,8 @@ namespace Final_AppDP
                             stores[i] = make.auxStore;
                     }
                 }                
-            }   */         
+            }*/
+            storesGlobal = sortedStores;
             var source = new BindingSource(stores, null);
             dgvStores.DataSource = source;
         }
@@ -57,14 +61,18 @@ namespace Final_AppDP
         private void button1_Click(object sender, EventArgs e)
         {
             QRAdapter adapter = new QRAdapter();
-            Store auxStore = new Store(4, "Aurrera");
+            Store auxStore = new Store(1, "Walmart");
             adapter.SetStore(auxStore);
         }
 
         private void btnDeliver_Click(object sender, EventArgs e)
         {
-            Deliver deliver = new Deliver();
-            deliver.ShowDialog();
+            if (storesGlobal.Count > 0)
+            {
+                Deliver deliver = new Deliver(storesGlobal);
+                deliver.ShowDialog();
+            }
+
         }
     }
 }

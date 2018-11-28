@@ -12,12 +12,20 @@ namespace Final_AppDP.Classes
         public int idStore { get; set; }
         public string storeName { get; set; }        
         public BindingList<Product> products { get; set; }
+        public float totalPrice { get; set; }
 
         public Store(int id, string name, BindingList<Product> order = null)
         {           
             idStore = id;
             storeName = name;
             products = order;
+        }
+
+        public void CalculateAmount()
+        {
+            if(products != null)
+                foreach (Product product in products)
+                    totalPrice += product.quantity * product.price;
         }
 
         public override string ToString()
@@ -28,6 +36,7 @@ namespace Final_AppDP.Classes
             {
                 res += product.name + " - " + product.quantity + " pz; ";
             }
+            res += "|Total Price: " + totalPrice;
             return res;
         }
     }
