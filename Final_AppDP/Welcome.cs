@@ -38,7 +38,7 @@ namespace Final_AppDP
                     stores.Add(store);                        
                 }
             }
-            for(int i = 0; i < stores.Count; i++)
+            /*for(int i = 0; i < stores.Count; i++)
             {
                 if (stores[i].products == null)
                 {
@@ -49,7 +49,7 @@ namespace Final_AppDP
                             stores[i] = make.auxStore;
                     }
                 }                
-            }            
+            }   */         
             var source = new BindingSource(stores, null);
             dgvStores.DataSource = source;
         }
