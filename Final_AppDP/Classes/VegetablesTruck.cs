@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace Final_AppDP.Classes
 {
     public class VegetablesTruck : Truck
-    {
-        public string Type { get; set; }
-
-        public VegetablesTruck(int Qty) : base(Qty)
-        {            
+    {            
+        public VegetablesTruck(int Qty)
+        {
+            Quantity = 95;
             Type = "Vegetables Truck";
         }
     }

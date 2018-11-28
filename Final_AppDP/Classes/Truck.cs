@@ -9,10 +9,6 @@ namespace Final_AppDP.Classes
     public class Truck
     {
         public int Quantity { get; set; }
-
-        public Truck(int Qty)
-        {
-            Quantity = Qty;
-        }
+        public string Type { get; set; }
     }
 }
