@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(162, 9);
+            this.label1.Location = new System.Drawing.Point(141, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 26);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(201, 63);
+            this.label2.Location = new System.Drawing.Point(180, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 2;
@@ -82,7 +82,7 @@
             // dgvStores
             // 
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStores.Location = new System.Drawing.Point(68, 105);
+            this.dgvStores.Location = new System.Drawing.Point(47, 105);
             this.dgvStores.Name = "dgvStores";
             this.dgvStores.Size = new System.Drawing.Size(239, 150);
             this.dgvStores.TabIndex = 5;
@@ -90,7 +90,7 @@
             // btnDeliver
             // 
             this.btnDeliver.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeliver.Location = new System.Drawing.Point(240, 278);
+            this.btnDeliver.Location = new System.Drawing.Point(219, 278);
             this.btnDeliver.Name = "btnDeliver";
             this.btnDeliver.Size = new System.Drawing.Size(101, 35);
             this.btnDeliver.TabIndex = 6;
@@ -101,7 +101,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Final_AppDP.Properties.Resources.QR;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 325);
+            this.ClientSize = new System.Drawing.Size(358, 325);
             this.Controls.Add(this.btnDeliver);
             this.Controls.Add(this.dgvStores);
             this.Controls.Add(this.button1);
