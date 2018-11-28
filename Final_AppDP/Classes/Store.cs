@@ -19,5 +19,16 @@ namespace Final_AppDP.Classes
             storeName = name;
             products = order;
         }
+
+        public override string ToString()
+        {
+            string res = "";
+            res += "ID: " + idStore + "|Store Name: " + storeName + "|Products: ";
+            foreach(Product product in products)
+            {
+                res += product.name + " - " + product.quantity + " pz; ";
+            }
+            return res;
+        }
     }
 }

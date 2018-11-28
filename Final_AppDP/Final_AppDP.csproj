@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\QRAdapter.cs" />
+    <Compile Include="Classes\QRTarget.cs" />
     <Compile Include="Classes\Store.cs" />
     <Compile Include="MakeOrder.cs">
       <SubType>Form</SubType>

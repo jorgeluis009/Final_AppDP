@@ -17,8 +17,8 @@ using Final_AppDP.Classes;
 namespace Final_AppDP
 {
     public partial class MakeOrder : Form
-    {
-        Store auxStore;
+    {        
+        public Store auxStore { get; set; }
 
         public MakeOrder(Store store)
         {
@@ -40,18 +40,15 @@ namespace Final_AppDP
                 products.Add(new Product(2, "Sodas", (int)noSodas.Value));
             if (noBread.Value > 0)
                 products.Add(new Product(3, "Bread", (int)noBread.Value));
-            auxStore.products = products;
+            auxStore.products = products;            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string output = JsonConvert.SerializeObject(auxStore);
-            QREncoder QRCodeEncoder = new QREncoder();
-            QRCodeEncoder.Encode(ErrorCorrection.M, output);
-            Bitmap QRCodeImage = QRCodeToBitmap.CreateBitmap(QRCodeEncoder, 4, 8);
-            FileStream FS = new FileStream(auxStore.storeName + ".png", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
-            QRCodeImage.Save(FS, ImageFormat.Png);
-            FS.Close();            
+            QRAdapter adapter = new QRAdapter();
+            adapter.SetStore(auxStore);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
