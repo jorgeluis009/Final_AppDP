@@ -8,8 +8,9 @@ namespace Final_AppDP.Classes
 {
     public class VegetablesTruck : Truck
     {            
-        public VegetablesTruck(int Qty)
+        public VegetablesTruck()
         {
+            Id = 1;
             Quantity = 95;
             Type = "Vegetables Truck";
         }

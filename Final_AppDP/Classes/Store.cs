@@ -23,6 +23,7 @@ namespace Final_AppDP.Classes
 
         public void CalculateAmount()
         {
+            totalPrice = 0;
             if(products != null)
                 foreach (Product product in products)
                     totalPrice += product.quantity * product.price;

@@ -49,7 +49,7 @@ namespace Final_AppDP
                     {                        
                         var result = make.ShowDialog();
                         if (result == DialogResult.OK)
-                            stores[i] = make.auxStore;
+                            stores[i] = make.store;
                     }
                 }                
             }*/
@@ -61,7 +61,7 @@ namespace Final_AppDP
         private void button1_Click(object sender, EventArgs e)
         {
             QRAdapter adapter = new QRAdapter();
-            Store auxStore = new Store(1, "Walmart");
+            Store auxStore = new Store(2, "Sams");
             adapter.SetStore(auxStore);
         }
 
@@ -72,6 +72,11 @@ namespace Final_AppDP
                 Deliver deliver = new Deliver(storesGlobal);
                 deliver.ShowDialog();
             }
+            else
+                MessageBox.Show("There isn't any store to deliver an order.",
+                                "Important",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
 
         }
     }

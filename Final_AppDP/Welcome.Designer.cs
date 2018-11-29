@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(141, 9);
+            this.label1.Location = new System.Drawing.Point(127, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 26);
             this.label1.TabIndex = 0;
@@ -53,11 +53,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(180, 63);
+            this.label2.Location = new System.Drawing.Point(120, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
+            this.label2.Size = new System.Drawing.Size(193, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Click me!";
+            this.label2.Text = "Click me to read codes!";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -82,7 +82,7 @@
             // dgvStores
             // 
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStores.Location = new System.Drawing.Point(47, 105);
+            this.dgvStores.Location = new System.Drawing.Point(51, 105);
             this.dgvStores.Name = "dgvStores";
             this.dgvStores.Size = new System.Drawing.Size(239, 150);
             this.dgvStores.TabIndex = 5;
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 325);
+            this.ClientSize = new System.Drawing.Size(352, 325);
             this.Controls.Add(this.btnDeliver);
             this.Controls.Add(this.dgvStores);
             this.Controls.Add(this.button1);
