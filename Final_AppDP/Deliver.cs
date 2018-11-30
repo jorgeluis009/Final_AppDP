@@ -24,7 +24,7 @@ namespace Final_AppDP
         private void btnSimulate_Click(object sender, EventArgs e)
         {
             BindingList<Truck> trucks = new BindingList<Truck>();
-            Dictionary<int, int> auxStores = new Dictionary<int, int>();
+            Dictionary<int, int> auxStores = new Dictionary<int, int>();            
             bool flag = true;
             int vegetable = (int)numVegetable.Value;
             int soda = (int)numSoda.Value;
@@ -32,7 +32,7 @@ namespace Final_AppDP
             int total = vegetable + soda + bread;
             if (total == 0)            
                 MessageBox.Show("You need minimum 1 truck", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);            
-            else if (total > 5)            
+            else if (total > 5)
                 MessageBox.Show("You can have maximum 5 trucks", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);            
             else
             {
@@ -42,20 +42,18 @@ namespace Final_AppDP
                     trucks.Add(new SodasTruck());
                 for (int i = 0; i < bread; i++)
                     trucks.Add(new BreadTruck());
+                for (int i = 1; i <= 3; i++)
+                    auxStores.Add(i, 0);
+
                 foreach(Store store in stores)
-                {
                     if (store.products != null)
                         foreach (Product product in store.products)
-                        {
-                            if (!auxStores.TryGetValue(product.idProduct, out int auxValue))
-                                auxStores.Add(product.idProduct, product.quantity);
-                            else                        
-                                auxStores[product.idProduct] += product.quantity;                        
-                        }                    
-                }
+                            auxStores[product.idProduct] += product.quantity;    
+                
                 foreach (Truck truck in trucks)
                     if (auxStores.TryGetValue(truck.Id, out int aux))
                         auxStores[truck.Id] -= truck.Quantity;
+
                 foreach (KeyValuePair<int, int> entry in auxStores)                
                     if (entry.Value > 0)
                         flag = false;
@@ -65,10 +63,8 @@ namespace Final_AppDP
                     lblRes.Text = "You can deliver all your orders with the selected trucks.\n";
                     btnDeliver.Enabled = true;
                     foreach (KeyValuePair<int, int> entry in auxStores)
-                    {
                         if (entry.Value < 0)
                             lblRes.Text += "Remaining " + -1*entry.Value + " " + getType(entry.Key) + "\n";
-                    }
                 }                    
                 else
                 {
@@ -76,12 +72,39 @@ namespace Final_AppDP
                     lblRes.Text = "You cannot deliver all your orders with the selected trucks.\n";
                     btnDeliver.Enabled = false;
                     foreach (KeyValuePair<int, int> entry in auxStores)
-                    {
                         if(entry.Value > 0)
                             lblRes.Text += "Missing " + entry.Value + " " +getType(entry.Key) + "\n";
-                    }
                 }                    
             }
+        }        
+
+        private void btnDeliver_Click(object sender, EventArgs e)
+        {            
+            for(int i = 0; i < stores.Count; i++)
+            {                
+                MessageBox.Show("Amount earned in this store $"+stores[i].totalPrice, "Delivering order to " + stores[i].storeName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                stores[i].products = null;
+                if (stores[i].products == null)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Do you want to order any product for delivering tomorrow?", "New Order "+stores[i].storeName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        using (MakeOrder make = new MakeOrder(stores[i]))
+                        {
+                            var result = make.ShowDialog();
+                            if (result == DialogResult.OK)
+                                stores[i] = make.store;
+                        }                        
+                    }
+                    else
+                    {
+                        QRAdapter adapter = new QRAdapter();
+                        adapter.SetStore(stores[i]);
+                    }
+                    stores[i].CalculateAmount();
+                }                
+            }
+            this.Close();
         }
 
         public string getType(int id)
@@ -92,27 +115,6 @@ namespace Final_AppDP
                 return "sodas";
             else
                 return "breads";
-        }
-
-        private void btnDeliver_Click(object sender, EventArgs e)
-        {
-            foreach(Store store in stores)            
-                store.products = null;
-
-            for(int i = 0; i < stores.Count; i++)
-            {
-                if (stores[i].products == null)
-                {
-                    using (MakeOrder make = new MakeOrder(stores[i]))
-                    {                        
-                        var result = make.ShowDialog();
-                        if (result == DialogResult.OK)
-                            stores[i] = make.store;
-                    }
-                    stores[i].CalculateAmount();
-                }                
-            }
-            this.Close();
         }
     }
 }

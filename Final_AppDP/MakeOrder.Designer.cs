@@ -37,7 +37,6 @@
             this.noBread = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.noVegetables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noSodas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noBread)).BeginInit();
@@ -123,22 +122,11 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(203, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 25);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Make new order";
-            // 
             // MakeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 275);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.noBread);
@@ -170,6 +158,5 @@
         private System.Windows.Forms.NumericUpDown noBread;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label4;
     }
 }
