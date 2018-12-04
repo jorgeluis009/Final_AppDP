@@ -35,6 +35,7 @@
             this.dgvStores = new System.Windows.Forms.DataGridView();
             this.btnDeliver = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LogConfigBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,9 +83,9 @@
             // dgvStores
             // 
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStores.Location = new System.Drawing.Point(51, 105);
+            this.dgvStores.Location = new System.Drawing.Point(12, 105);
             this.dgvStores.Name = "dgvStores";
-            this.dgvStores.Size = new System.Drawing.Size(239, 150);
+            this.dgvStores.Size = new System.Drawing.Size(343, 150);
             this.dgvStores.TabIndex = 5;
             // 
             // btnDeliver
@@ -108,11 +109,23 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // LogConfigBTN
+            // 
+            this.LogConfigBTN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogConfigBTN.Location = new System.Drawing.Point(73, 278);
+            this.LogConfigBTN.Name = "LogConfigBTN";
+            this.LogConfigBTN.Size = new System.Drawing.Size(140, 35);
+            this.LogConfigBTN.TabIndex = 7;
+            this.LogConfigBTN.Text = "Log Options";
+            this.LogConfigBTN.UseVisualStyleBackColor = true;
+            this.LogConfigBTN.Click += new System.EventHandler(this.LogConfigBTN_Click);
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 325);
+            this.ClientSize = new System.Drawing.Size(441, 325);
+            this.Controls.Add(this.LogConfigBTN);
             this.Controls.Add(this.btnDeliver);
             this.Controls.Add(this.dgvStores);
             this.Controls.Add(this.button1);
@@ -138,6 +151,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvStores;
         private System.Windows.Forms.Button btnDeliver;
+        private System.Windows.Forms.Button LogConfigBTN;
     }
 }
 

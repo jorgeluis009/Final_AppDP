@@ -79,5 +79,10 @@ namespace Final_AppDP
                                 MessageBoxIcon.Information);
 
         }
+
+        private void LogConfigBTN_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

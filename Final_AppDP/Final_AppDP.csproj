@@ -52,50 +52,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\BreadTruck.cs" />
-    <Compile Include="Classes\Logger.cs" />
-    <Compile Include="Classes\LogItem.cs" />
+    <Compile Include="Classes\TrucksClasses\BreadTruck.cs" />
+    <Compile Include="Classes\LoggerClasses\Logger.cs" />
+    <Compile Include="Classes\LoggerClasses\LogItem.cs" />
     <Compile Include="Classes\Product.cs" />
-    <Compile Include="Classes\QRAdapter.cs" />
-    <Compile Include="Classes\QRTarget.cs" />
-    <Compile Include="Classes\SodasTruck.cs" />
+    <Compile Include="Classes\QRClasses\QRAdapter.cs" />
+    <Compile Include="Classes\QRClasses\QRTarget.cs" />
+    <Compile Include="Classes\TrucksClasses\SodasTruck.cs" />
     <Compile Include="Classes\Store.cs" />
-    <Compile Include="Classes\Truck.cs" />
-    <Compile Include="Classes\VegetablesTruck.cs" />
-    <Compile Include="Deliver.cs">
+    <Compile Include="Classes\TrucksClasses\Truck.cs" />
+    <Compile Include="Classes\TrucksClasses\VegetablesTruck.cs" />
+    <Compile Include="Forms\Deliver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Deliver.Designer.cs">
+    <Compile Include="Forms\Deliver.Designer.cs">
       <DependentUpon>Deliver.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogConfig.cs">
+    <Compile Include="Forms\LogConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogConfig.Designer.cs">
+    <Compile Include="Forms\LogConfig.Designer.cs">
       <DependentUpon>LogConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\LogObserver.cs" />
-    <Compile Include="MakeOrder.cs">
+    <Compile Include="Classes\LoggerClasses\LogObserver.cs" />
+    <Compile Include="Forms\MakeOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MakeOrder.Designer.cs">
+    <Compile Include="Forms\MakeOrder.Designer.cs">
       <DependentUpon>MakeOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Welcome.cs">
+    <Compile Include="Forms\Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Welcome.Designer.cs">
+    <Compile Include="Forms\Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Deliver.resx">
+    <EmbeddedResource Include="Forms\Deliver.resx">
       <DependentUpon>Deliver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogConfig.resx">
+    <EmbeddedResource Include="Forms\LogConfig.resx">
       <DependentUpon>LogConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeOrder.resx">
+    <EmbeddedResource Include="Forms\MakeOrder.resx">
       <DependentUpon>MakeOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -108,7 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Welcome.resx">
+    <EmbeddedResource Include="Forms\Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
