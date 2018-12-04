@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Final_AppDP.Classes
 {
-    public class LogItem
+    public class LogObject
     {
         public DateTime Date { get; set; }
         public string Message { get; set; }
 
-        public LogItem(DateTime date, string message)
+        public LogObject(DateTime date, string message)
         {
             Date = date;
             Message = message;
@@ -19,7 +19,7 @@ namespace Final_AppDP.Classes
 
         public override string ToString()
         {
-            return Date.ToLongDateString() + " - " + Message + "\n";
+            return Date.ToShortTimeString() + " - " + Message + "\n";
         }
     }
 }

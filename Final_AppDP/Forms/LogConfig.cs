@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Final_AppDP.Classes;
+using Final_AppDP.Classes.LoggerClasses;
+using Final_AppDP.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +22,19 @@ namespace Final_AppDP
 
         private void LogConfig_Load(object sender, EventArgs e)
         {
-            
+
+            dgvLog.DataSource = Logger.GetBindingList();
+            dgvLog.Columns["LogName"].Width = 125;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Logger.Add(new TextBoxLogger());
         }
     }
 }

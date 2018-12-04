@@ -52,9 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\LoggerClasses\LogManager.cs" />
+    <Compile Include="Classes\LoggerClasses\TextBoxClass.cs" />
+    <Compile Include="Classes\LoggerClasses\TextBoxLogger.cs" />
     <Compile Include="Classes\TrucksClasses\BreadTruck.cs" />
     <Compile Include="Classes\LoggerClasses\Logger.cs" />
-    <Compile Include="Classes\LoggerClasses\LogItem.cs" />
+    <Compile Include="Classes\LoggerClasses\LogObject.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\QRClasses\QRAdapter.cs" />
     <Compile Include="Classes\QRClasses\QRTarget.cs" />
@@ -81,6 +84,12 @@
     <Compile Include="Forms\MakeOrder.Designer.cs">
       <DependentUpon>MakeOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\txtBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\txtBoxForm.Designer.cs">
+      <DependentUpon>txtBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MakeOrder.resx">
       <DependentUpon>MakeOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\txtBoxForm.resx">
+      <DependentUpon>txtBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

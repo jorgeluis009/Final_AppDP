@@ -23,6 +23,8 @@ namespace Final_AppDP
 
         private void btnSimulate_Click(object sender, EventArgs e)
         {
+            Logger.Log("The simulation began...");
+
             BindingList<Truck> trucks = new BindingList<Truck>();
             Dictionary<int, int> auxStores = new Dictionary<int, int>();            
             bool flag = true;
@@ -30,13 +32,21 @@ namespace Final_AppDP
             int soda = (int)numSoda.Value;
             int bread = (int)numBread.Value;
             int total = vegetable + soda + bread;
-            if (total == 0)            
-                MessageBox.Show("You need minimum 1 truck", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);            
+            if (total == 0)
+            {
+                MessageBox.Show("You need minimum 1 truck", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Logger.Log("The minimum amount of trucks is 1, try again.");
+
+            }
             else if (total > 5)
-                MessageBox.Show("You can have maximum 5 trucks", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);            
+            {
+                MessageBox.Show("You can have maximum 5 trucks", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Logger.Log("The maximum amount of trucks is 5, try again.");
+
+            }
             else
             {
-                for (int i = 0; i < vegetable; i++)                
+                for (int i = 0; i < vegetable; i++)
                     trucks.Add(new VegetablesTruck());
                 for (int i = 0; i < soda; i++)
                     trucks.Add(new SodasTruck());
@@ -45,42 +55,47 @@ namespace Final_AppDP
                 for (int i = 1; i <= 3; i++)
                     auxStores.Add(i, 0);
 
-                foreach(Store store in stores)
+                foreach (Store store in stores)
                     if (store.products != null)
                         foreach (Product product in store.products)
-                            auxStores[product.idProduct] += product.quantity;    
-                
+                            auxStores[product.idProduct] += product.quantity;
+
                 foreach (Truck truck in trucks)
                     if (auxStores.TryGetValue(truck.Id, out int aux))
                         auxStores[truck.Id] -= truck.Quantity;
 
-                foreach (KeyValuePair<int, int> entry in auxStores)                
+                foreach (KeyValuePair<int, int> entry in auxStores)
                     if (entry.Value > 0)
                         flag = false;
                 if (flag)
                 {
                     lblRes.ForeColor = Color.Green;
                     lblRes.Text = "You can deliver all your orders with the selected trucks.\n";
+                    Logger.Log("Delivery is possible in simulation.");
                     btnDeliver.Enabled = true;
                     foreach (KeyValuePair<int, int> entry in auxStores)
                         if (entry.Value < 0)
-                            lblRes.Text += "Remaining " + -1*entry.Value + " " + getType(entry.Key) + "\n";
-                }                    
+                            lblRes.Text += "Remaining " + -1 * entry.Value + " " + getType(entry.Key) + "\n";
+                }
                 else
                 {
                     lblRes.ForeColor = Color.Red;
                     lblRes.Text = "You cannot deliver all your orders with the selected trucks.\n";
+                    Logger.Log("Delivery failed, is not possible to continue...");
+
                     btnDeliver.Enabled = false;
                     foreach (KeyValuePair<int, int> entry in auxStores)
-                        if(entry.Value > 0)
-                            lblRes.Text += "Missing " + entry.Value + " " +getType(entry.Key) + "\n";
-                }                    
+                        if (entry.Value > 0)
+                            lblRes.Text += "Missing " + entry.Value + " " + getType(entry.Key) + "\n";
+                }
             }
         }        
 
         private void btnDeliver_Click(object sender, EventArgs e)
-        {            
-            for(int i = 0; i < stores.Count; i++)
+        {
+            Logger.Log("Delivery done.");
+
+            for (int i = 0; i < stores.Count; i++)
             {                
                 MessageBox.Show("Amount earned in this store $"+stores[i].totalPrice, "Delivering order to " + stores[i].storeName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 stores[i].products = null;
@@ -115,6 +130,46 @@ namespace Final_AppDP
                 return "sodas";
             else
                 return "breads";
+        }
+
+        private void numSoda_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (Convert.ToInt32(num.Text) > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of soda trucks: using {0} trucks", 1));
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of soda trucks: using {0} trucks", 0));
+            }
+
+        }
+
+        private void numVegetable_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (Convert.ToInt32(num.Text) > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of vegetable trucks: using {0} trucks", 1));
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of vegetable trucks: using {0} trucks", 0));
+            }
+        }
+
+        private void numBread_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (Convert.ToInt32(num.Text) > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of bread trucks: using {0} trucks", 1));
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of bread trucks: using {0} trucks", 0));
+            }
         }
     }
 }

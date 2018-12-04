@@ -36,7 +36,7 @@ namespace Final_AppDP.Classes
         {
             foreach (var LogManager in _log)
             {
-                LogManager.ConcreteLog(new LogItem(DateTime.Now, LogMessage));
+                LogManager.ConcreteLog(new LogObject(DateTime.Now, LogMessage));
             }
         }
 

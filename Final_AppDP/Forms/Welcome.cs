@@ -82,7 +82,8 @@ namespace Final_AppDP
 
         private void LogConfigBTN_Click(object sender, EventArgs e)
         {
-
+            Form logC = new LogConfig();
+            logC.Show();
         }
     }
 }

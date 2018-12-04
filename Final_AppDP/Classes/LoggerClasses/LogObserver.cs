@@ -12,7 +12,7 @@ namespace Final_AppDP
         public int IdLog { get; set; }
         public string LogName { get; set; }
 
-        public abstract void ConcreteLog(LogItem log);
+        public abstract void ConcreteLog(LogObject log);
 
         public abstract void Close();
 

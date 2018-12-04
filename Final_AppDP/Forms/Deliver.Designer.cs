@@ -90,6 +90,7 @@
             this.numVegetable.Name = "numVegetable";
             this.numVegetable.Size = new System.Drawing.Size(120, 24);
             this.numVegetable.TabIndex = 3;
+            this.numVegetable.ValueChanged += new System.EventHandler(this.numVegetable_ValueChanged);
             // 
             // numSoda
             // 
@@ -103,6 +104,7 @@
             this.numSoda.Name = "numSoda";
             this.numSoda.Size = new System.Drawing.Size(120, 24);
             this.numSoda.TabIndex = 4;
+            this.numSoda.ValueChanged += new System.EventHandler(this.numSoda_ValueChanged);
             // 
             // numBread
             // 
@@ -116,6 +118,7 @@
             this.numBread.Name = "numBread";
             this.numBread.Size = new System.Drawing.Size(120, 24);
             this.numBread.TabIndex = 5;
+            this.numBread.ValueChanged += new System.EventHandler(this.numBread_ValueChanged);
             // 
             // btnSimulate
             // 
