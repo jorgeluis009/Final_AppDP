@@ -13,7 +13,10 @@ namespace Final_AppDP
 {
     public partial class Deliver : Form
     {
-        BindingList<Store> stores;     
+        BindingList<Store> stores;
+        int auxVegetables = 0;
+        int auxSodas = 0;
+        int auxBread = 0;
         
         public Deliver(BindingList<Store> aux)
         {
@@ -120,6 +123,52 @@ namespace Final_AppDP
                 }                
             }
             this.Close();
+        }        
+
+        private void numSoda_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxSodas > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of soda trucks: using {0} trucks", num.Value));
+                auxSodas = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of soda trucks: using {0} trucks", num.Value));
+                auxSodas = (int)num.Value;
+            }
+
+        }
+
+        private void numVegetable_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxVegetables > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of vegetable trucks: using {0} trucks", num.Value));
+                auxVegetables = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of vegetable trucks: using {0} trucks", num.Value));
+                auxVegetables = (int)num.Value;
+            }
+        }
+
+        private void numBread_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxBread > num.Value)
+            {
+                Logger.Log(String.Format("Decreased Number of bread trucks: using {0} trucks", num.Value));
+                auxBread = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("Increased Number of bread trucks: using {0} trucks", num.Value));
+                auxBread = (int)num.Value;
+            }
         }
 
         public string getType(int id)
@@ -130,46 +179,6 @@ namespace Final_AppDP
                 return "sodas";
             else
                 return "breads";
-        }
-
-        private void numSoda_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown num = (NumericUpDown)sender;
-            if (Convert.ToInt32(num.Text) > num.Value)
-            {
-                Logger.Log(String.Format("Decreased Number of soda trucks: using {0} trucks", 1));
-            }
-            else
-            {
-                Logger.Log(String.Format("Increased Number of soda trucks: using {0} trucks", 0));
-            }
-
-        }
-
-        private void numVegetable_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown num = (NumericUpDown)sender;
-            if (Convert.ToInt32(num.Text) > num.Value)
-            {
-                Logger.Log(String.Format("Decreased Number of vegetable trucks: using {0} trucks", 1));
-            }
-            else
-            {
-                Logger.Log(String.Format("Increased Number of vegetable trucks: using {0} trucks", 0));
-            }
-        }
-
-        private void numBread_ValueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown num = (NumericUpDown)sender;
-            if (Convert.ToInt32(num.Text) > num.Value)
-            {
-                Logger.Log(String.Format("Decreased Number of bread trucks: using {0} trucks", 1));
-            }
-            else
-            {
-                Logger.Log(String.Format("Increased Number of bread trucks: using {0} trucks", 0));
-            }
         }
     }
 }
