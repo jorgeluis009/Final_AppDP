@@ -84,23 +84,41 @@
             // noVegetables
             // 
             this.noVegetables.Location = new System.Drawing.Point(16, 138);
+            this.noVegetables.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.noVegetables.Name = "noVegetables";
             this.noVegetables.Size = new System.Drawing.Size(120, 20);
             this.noVegetables.TabIndex = 5;
+            this.noVegetables.ValueChanged += new System.EventHandler(this.noVegetables_ValueChanged);
             // 
             // noSodas
             // 
             this.noSodas.Location = new System.Drawing.Point(149, 138);
+            this.noSodas.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.noSodas.Name = "noSodas";
             this.noSodas.Size = new System.Drawing.Size(120, 20);
             this.noSodas.TabIndex = 6;
+            this.noSodas.ValueChanged += new System.EventHandler(this.noSodas_ValueChanged);
             // 
             // noBread
             // 
             this.noBread.Location = new System.Drawing.Point(274, 138);
+            this.noBread.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.noBread.Name = "noBread";
             this.noBread.Size = new System.Drawing.Size(120, 20);
             this.noBread.TabIndex = 7;
+            this.noBread.ValueChanged += new System.EventHandler(this.noBread_ValueChanged);
             // 
             // btnAdd
             // 

@@ -19,6 +19,9 @@ namespace Final_AppDP
     public partial class MakeOrder : Form
     {        
         public Store store { get; set; }
+        int auxVegetables = 0;
+        int auxSodas = 0;
+        int auxBread = 0;
 
         public MakeOrder(Store auxStore)
         {
@@ -40,15 +43,62 @@ namespace Final_AppDP
                 products.Add(new Product(2, "Sodas", (int)noSodas.Value, 30.0f));
             if (noBread.Value > 0)
                 products.Add(new Product(3, "Bread", (int)noBread.Value, 40.0f));
-            store.products = products;            
+            store.products = products;
+            Logger.Log(String.Format("The order of {0} has been saved", store.storeName));
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             QRAdapter adapter = new QRAdapter();
             adapter.SetStore(store);
+            Logger.Log(String.Format("The QR image of {0} has been saved", store.storeName));
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void noVegetables_ValueChanged(object sender, EventArgs e)
+        {            
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxVegetables > num.Value)
+            {
+                Logger.Log(String.Format("The amount of vegetables for {0} has decreased to {1} pieces", store.storeName, num.Value));
+                auxVegetables = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("The amount of vegetables for {0} has increased to {1} pieces", store.storeName, num.Value));                
+                auxVegetables = (int)num.Value;
+            }
+        }
+
+        private void noSodas_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxSodas > num.Value)
+            {
+                Logger.Log(String.Format("The amount of sodas for {0} has decreased to {1} pieces", store.storeName, num.Value));
+                auxSodas = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("The amount of sodas for {0} has increased to {1} pieces", store.storeName, num.Value));
+                auxSodas = (int)num.Value;
+            }
+        }
+
+        private void noBread_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            if (auxBread > num.Value)
+            {
+                Logger.Log(String.Format("The amount of bread for {0} has decreased to {1} pieces", store.storeName, num.Value));
+                auxBread = (int)num.Value;
+            }
+            else
+            {
+                Logger.Log(String.Format("The amount of bread for {0} has increased to {1} pieces", store.storeName, num.Value));
+                auxBread = (int)num.Value;
+            }
         }
     }
 }

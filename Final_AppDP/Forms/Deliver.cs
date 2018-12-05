@@ -38,13 +38,13 @@ namespace Final_AppDP
             if (total == 0)
             {
                 MessageBox.Show("You need minimum 1 truck", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Logger.Log("The minimum amount of trucks is 1, try again.");
+                Logger.Log("The minimum amount of trucks is 1, try again");
 
             }
             else if (total > 5)
             {
                 MessageBox.Show("You can have maximum 5 trucks", "Important", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Logger.Log("The maximum amount of trucks is 5, try again.");
+                Logger.Log("The maximum amount of trucks is 5, try again");
 
             }
             else
@@ -74,7 +74,7 @@ namespace Final_AppDP
                 {
                     lblRes.ForeColor = Color.Green;
                     lblRes.Text = "You can deliver all your orders with the selected trucks.\n";
-                    Logger.Log("Delivery is possible in simulation.");
+                    Logger.Log("Delivery is possible in simulation");
                     btnDeliver.Enabled = true;
                     foreach (KeyValuePair<int, int> entry in auxStores)
                         if (entry.Value < 0)
@@ -95,9 +95,7 @@ namespace Final_AppDP
         }        
 
         private void btnDeliver_Click(object sender, EventArgs e)
-        {
-            Logger.Log("Delivery done.");
-
+        {            
             for (int i = 0; i < stores.Count; i++)
             {                
                 MessageBox.Show("Amount earned in this store $"+stores[i].totalPrice, "Delivering order to " + stores[i].storeName, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -107,6 +105,7 @@ namespace Final_AppDP
                     DialogResult dialogResult = MessageBox.Show("Do you want to order any product for delivering tomorrow?", "New Order "+stores[i].storeName, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        Logger.Log(String.Format("New order created for {0}", stores[i].storeName));
                         using (MakeOrder make = new MakeOrder(stores[i]))
                         {
                             var result = make.ShowDialog();
@@ -122,6 +121,7 @@ namespace Final_AppDP
                     stores[i].CalculateAmount();
                 }                
             }
+            Logger.Log("Delivery done");
             this.Close();
         }        
 
@@ -138,7 +138,6 @@ namespace Final_AppDP
                 Logger.Log(String.Format("Increased Number of soda trucks: using {0} trucks", num.Value));
                 auxSodas = (int)num.Value;
             }
-
         }
 
         private void numVegetable_ValueChanged(object sender, EventArgs e)
