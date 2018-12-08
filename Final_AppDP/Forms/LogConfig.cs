@@ -36,5 +36,11 @@ namespace Final_AppDP
         {
             Logger.Add(new TextBoxLogger());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Logger.Add(new DataGridLogger());
+
+        }
     }
 }

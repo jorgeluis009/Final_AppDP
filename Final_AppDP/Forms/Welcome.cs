@@ -56,6 +56,8 @@ namespace Final_AppDP
             storesGlobal = sortedStores;
             var source = new BindingSource(stores, null);
             dgvStores.DataSource = source;
+            Logger.Log("New Image loaded");
+
         }
 
         private void button1_Click(object sender, EventArgs e)

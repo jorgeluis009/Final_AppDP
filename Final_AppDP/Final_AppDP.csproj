@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\LoggerClasses\Logs\DataGridClass.cs" />
+    <Compile Include="Classes\LoggerClasses\DataGridLogger.cs" />
     <Compile Include="Classes\LoggerClasses\LogManager.cs" />
-    <Compile Include="Classes\LoggerClasses\TextBoxClass.cs" />
+    <Compile Include="Classes\LoggerClasses\Logs\TextBoxClass.cs" />
     <Compile Include="Classes\LoggerClasses\TextBoxLogger.cs" />
     <Compile Include="Classes\TrucksClasses\BreadTruck.cs" />
     <Compile Include="Classes\LoggerClasses\Logger.cs" />
@@ -65,6 +67,12 @@
     <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\TrucksClasses\Truck.cs" />
     <Compile Include="Classes\TrucksClasses\VegetablesTruck.cs" />
+    <Compile Include="Forms\DataGridLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataGridLogForm.Designer.cs">
+      <DependentUpon>DataGridLogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Deliver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +106,9 @@
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\DataGridLogForm.resx">
+      <DependentUpon>DataGridLogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Deliver.resx">
       <DependentUpon>Deliver.cs</DependentUpon>
     </EmbeddedResource>
