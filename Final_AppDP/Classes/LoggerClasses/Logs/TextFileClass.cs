@@ -36,6 +36,7 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
             LogFile = File.Open(path, FileMode.Append);
             sw = new StreamWriter(LogFile);
             sw.WriteLine(Log.ToString());
+
             sw.Close();
         }
 
