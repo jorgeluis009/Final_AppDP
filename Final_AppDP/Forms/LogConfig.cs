@@ -22,7 +22,6 @@ namespace Final_AppDP
 
         private void LogConfig_Load(object sender, EventArgs e)
         {
-
             dgvLog.DataSource = Logger.GetBindingList();
             dgvLog.Columns["LogName"].Width = 125;
         }
@@ -40,13 +39,11 @@ namespace Final_AppDP
         private void button3_Click(object sender, EventArgs e)
         {
             Logger.Add(new DataGridLogger());
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Logger.Add(new TextFileLogger());
-
         }
     }
 }

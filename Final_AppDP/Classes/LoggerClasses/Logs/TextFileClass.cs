@@ -36,7 +36,6 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
             LogFile = File.Open(path, FileMode.Append);
             sw = new StreamWriter(LogFile);
             sw.WriteLine(Log.ToString());
-
             sw.Close();
         }
 
@@ -44,9 +43,8 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
         {
             number_references--;
             if (number_references == 0)
-            {
                 sw.Close();
-            }
+            
         }
 
         private static string GetPath()
