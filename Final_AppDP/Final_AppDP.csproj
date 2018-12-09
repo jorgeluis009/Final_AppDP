@@ -56,7 +56,9 @@
     <Compile Include="Classes\LoggerClasses\DataGridLogger.cs" />
     <Compile Include="Classes\LoggerClasses\LogManager.cs" />
     <Compile Include="Classes\LoggerClasses\Logs\TextBoxClass.cs" />
+    <Compile Include="Classes\LoggerClasses\Logs\TextFileClass.cs" />
     <Compile Include="Classes\LoggerClasses\TextBoxLogger.cs" />
+    <Compile Include="Classes\LoggerClasses\TextFileLogger.cs" />
     <Compile Include="Classes\TrucksClasses\BreadTruck.cs" />
     <Compile Include="Classes\LoggerClasses\Logger.cs" />
     <Compile Include="Classes\LoggerClasses\LogObject.cs" />

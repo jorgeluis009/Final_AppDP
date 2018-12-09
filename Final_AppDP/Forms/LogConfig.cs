@@ -42,5 +42,11 @@ namespace Final_AppDP
             Logger.Add(new DataGridLogger());
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Logger.Add(new TextFileLogger());
+
+        }
     }
 }
