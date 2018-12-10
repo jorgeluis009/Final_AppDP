@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Final_AppDP
 {
@@ -75,6 +76,7 @@ namespace Final_AppDP
                     lblRes.ForeColor = Color.Green;
                     lblRes.Text = "You can deliver all your orders with the selected trucks.\n";
                     Logger.Log("Delivery is possible in simulation");
+                    OKImage.Visible = true;
                     btnDeliver.Enabled = true;
                     foreach (KeyValuePair<int, int> entry in auxStores)
                         if (entry.Value < 0)
@@ -82,6 +84,7 @@ namespace Final_AppDP
                 }
                 else
                 {
+                    NOTImage.Visible = true;
                     lblRes.ForeColor = Color.Red;
                     lblRes.Text = "You cannot deliver all your orders with the selected trucks.\n";
                     Logger.Log("Delivery failed, is not possible to continue...");
@@ -178,6 +181,32 @@ namespace Final_AppDP
                 return "sodas";
             else
                 return "breads";
+        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void TopPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Deliver_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

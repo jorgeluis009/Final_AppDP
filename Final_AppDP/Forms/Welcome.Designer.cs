@@ -33,16 +33,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgvStores = new System.Windows.Forms.DataGridView();
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnExitFullScreen = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnFullScreen = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnReadQR = new System.Windows.Forms.Button();
-            this.btnDeliver1 = new System.Windows.Forms.Button();
             this.btnLogOptions = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnDeliver1 = new System.Windows.Forms.Button();
+            this.btnReadQR = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitFullScreen)).BeginInit();
@@ -96,7 +96,19 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(608, 35);
             this.TopPanel.TabIndex = 8;
+            this.TopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanel_Paint);
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(182, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "QR Scanner App";
             // 
             // btnExitFullScreen
             // 
@@ -161,32 +173,22 @@
             this.panel1.Size = new System.Drawing.Size(200, 456);
             this.panel1.TabIndex = 9;
             // 
-            // pictureBox2
+            // btnLogOptions
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(173, 104);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnReadQR
-            // 
-            this.btnReadQR.FlatAppearance.BorderSize = 0;
-            this.btnReadQR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReadQR.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadQR.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReadQR.Image = ((System.Drawing.Image)(resources.GetObject("btnReadQR.Image")));
-            this.btnReadQR.Location = new System.Drawing.Point(12, 126);
-            this.btnReadQR.Name = "btnReadQR";
-            this.btnReadQR.Size = new System.Drawing.Size(173, 102);
-            this.btnReadQR.TabIndex = 11;
-            this.btnReadQR.Text = "Read QR codes";
-            this.btnReadQR.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReadQR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReadQR.UseVisualStyleBackColor = true;
-            this.btnReadQR.Click += new System.EventHandler(this.btnReadQR_Click);
+            this.btnLogOptions.FlatAppearance.BorderSize = 0;
+            this.btnLogOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOptions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOptions.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLogOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOptions.Image")));
+            this.btnLogOptions.Location = new System.Drawing.Point(12, 342);
+            this.btnLogOptions.Name = "btnLogOptions";
+            this.btnLogOptions.Size = new System.Drawing.Size(173, 102);
+            this.btnLogOptions.TabIndex = 13;
+            this.btnLogOptions.Text = "Log Options";
+            this.btnLogOptions.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogOptions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnLogOptions.UseVisualStyleBackColor = true;
+            this.btnLogOptions.Click += new System.EventHandler(this.btnLogOptions_Click);
             // 
             // btnDeliver1
             // 
@@ -205,33 +207,32 @@
             this.btnDeliver1.UseVisualStyleBackColor = true;
             this.btnDeliver1.Click += new System.EventHandler(this.btnDeliver1_Click);
             // 
-            // btnLogOptions
+            // btnReadQR
             // 
-            this.btnLogOptions.FlatAppearance.BorderSize = 0;
-            this.btnLogOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOptions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOptions.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOptions.Image")));
-            this.btnLogOptions.Location = new System.Drawing.Point(12, 342);
-            this.btnLogOptions.Name = "btnLogOptions";
-            this.btnLogOptions.Size = new System.Drawing.Size(173, 102);
-            this.btnLogOptions.TabIndex = 13;
-            this.btnLogOptions.Text = "Log Options";
-            this.btnLogOptions.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLogOptions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnLogOptions.UseVisualStyleBackColor = true;
-            this.btnLogOptions.Click += new System.EventHandler(this.btnLogOptions_Click);
+            this.btnReadQR.FlatAppearance.BorderSize = 0;
+            this.btnReadQR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReadQR.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadQR.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReadQR.Image = ((System.Drawing.Image)(resources.GetObject("btnReadQR.Image")));
+            this.btnReadQR.Location = new System.Drawing.Point(12, 126);
+            this.btnReadQR.Name = "btnReadQR";
+            this.btnReadQR.Size = new System.Drawing.Size(173, 102);
+            this.btnReadQR.TabIndex = 11;
+            this.btnReadQR.Text = "Read QR codes";
+            this.btnReadQR.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReadQR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReadQR.UseVisualStyleBackColor = true;
+            this.btnReadQR.Click += new System.EventHandler(this.btnReadQR_Click);
             // 
-            // label1
+            // pictureBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(12, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "QR Scanner App";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(173, 104);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
             // 
             // Welcome
             // 
@@ -244,6 +245,7 @@
             this.Controls.Add(this.dgvStores);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Welcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
