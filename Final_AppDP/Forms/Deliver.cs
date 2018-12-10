@@ -14,6 +14,16 @@ namespace Final_AppDP
 {
     public partial class Deliver : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
         BindingList<Store> stores;
         int auxVegetables = 0;
         int auxSodas = 0;
@@ -22,7 +32,9 @@ namespace Final_AppDP
         public Deliver(BindingList<Store> aux)
         {
             InitializeComponent();
-            stores = aux;            
+            stores = aux;
+            FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void btnSimulate_Click(object sender, EventArgs e)

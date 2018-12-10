@@ -18,7 +18,18 @@ using System.Runtime.InteropServices;
 namespace Final_AppDP
 {
     public partial class MakeOrder : Form
-    {        
+    {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+
         public Store store { get; set; }
         int auxVegetables = 0;
         int auxSodas = 0;
@@ -28,6 +39,8 @@ namespace Final_AppDP
         {
             InitializeComponent();
             store = auxStore;
+            FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void MakeOrder_Load(object sender, EventArgs e)
