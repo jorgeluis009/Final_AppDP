@@ -13,6 +13,7 @@ using QRCodeEncoderDecoderLibrary;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Final_AppDP.Classes;
+using System.Runtime.InteropServices;
 
 namespace Final_AppDP
 {
@@ -22,22 +23,21 @@ namespace Final_AppDP
         public Welcome()
         {
             InitializeComponent();
-        }        
-
-        private void label2_Click(object sender, EventArgs e)
+        }
+        private void btnReadQR_Click(object sender, EventArgs e)
         {
             QRAdapter adapter = new QRAdapter();
             OpenFileDialog open = new OpenFileDialog();
-            open.Multiselect = true;            
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";            
-            BindingList<Store> stores = new BindingList<Store>();            
+            open.Multiselect = true;
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            BindingList<Store> stores = new BindingList<Store>();
             if (open.ShowDialog() == DialogResult.OK)
             {
                 foreach (string file in open.FileNames)
                 {
                     Store store = adapter.GetStore(file);
                     store.CalculateAmount();
-                    stores.Add(store);                        
+                    stores.Add(store);
                 }
             }
             var sortedStores = new BindingList<Store>(stores.OrderBy(x => -x.totalPrice).ToList());
@@ -57,17 +57,9 @@ namespace Final_AppDP
             var source = new BindingSource(stores, null);
             dgvStores.DataSource = source;
             Logger.Log("New Image loaded");
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            QRAdapter adapter = new QRAdapter();
-            Store auxStore = new Store(2, "Sams");
-            adapter.SetStore(auxStore);
-        }
-
-        private void btnDeliver_Click(object sender, EventArgs e)
+        private void btnDeliver1_Click(object sender, EventArgs e)
         {
             if (storesGlobal.Count > 0)
             {
@@ -82,10 +74,53 @@ namespace Final_AppDP
 
         }
 
-        private void LogConfigBTN_Click(object sender, EventArgs e)
+        private void btnLogOptions_Click(object sender, EventArgs e)
         {
             Form logC = new LogConfig();
             logC.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            QRAdapter adapter = new QRAdapter();
+            Store auxStore = new Store(2, "Sams");
+            adapter.SetStore(auxStore);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnFullScreen_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnFullScreen.Visible = false;
+            btnExitFullScreen.Visible = true;
+        }
+
+        private void btnExitFullScreen_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnFullScreen.Visible = true;
+            btnExitFullScreen.Visible = false;
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void TopPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+             ReleaseCapture();
+             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
