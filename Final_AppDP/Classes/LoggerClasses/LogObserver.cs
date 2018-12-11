@@ -11,7 +11,6 @@ namespace Final_AppDP
     {
         public int Log_ID { get; set; }
         public string Log_Name { get; set; }
-
         public abstract void ConcreteLog(LogObject log);
 
         public abstract void Close();
