@@ -39,7 +39,7 @@ namespace Final_AppDP
             DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn
             {
                 Name = "Delete_Log",
-                Text = "Delete",
+                Text = "Delete Log",
                 UseColumnTextForButtonValue = true
             };
 
