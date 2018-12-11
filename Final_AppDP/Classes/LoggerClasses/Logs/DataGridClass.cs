@@ -9,26 +9,24 @@ namespace Final_AppDP.Classes.LoggerClasses
 {
     class DataGridClass : LogManager
     {
-        private static DataGridClass dgvSingleton = null;
+        private static DataGridClass singleDGV = null;
 
-        private DataGridClass()
-        {
-        }
+        private DataGridClass(){}
 
         public static DataGridClass GetReference()
         {
-            if (dgvSingleton == null)
+            if (singleDGV == null)
             {
-                dgvSingleton = new DataGridClass();
+                singleDGV = new DataGridClass();
             }
 
-            return dgvSingleton;
+            return singleDGV;
         }
 
         public void Show()
         {
-            referencesCount++;
-            if (referencesCount == 1)
+            instanceCount++;
+            if (instanceCount == 1)
             {
                 form = new DataGridLogForm();
                 form.Show();

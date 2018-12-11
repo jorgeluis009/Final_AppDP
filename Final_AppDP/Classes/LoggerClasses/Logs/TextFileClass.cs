@@ -12,12 +12,9 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
         private static TextFileClass file_singleton = null;
         private Stream LogFile;
         private StreamWriter sw;
-        private static int number_references { get; set; }
+        private static int fileInstances { get; set; }
 
-        private TextFileClass()
-        {
-
-        }
+        private TextFileClass(){}
 
         public static TextFileClass GetReference()
         {
@@ -26,7 +23,7 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
                 file_singleton = new TextFileClass();
             }
 
-            number_references++;
+            fileInstances++;
             return file_singleton;
         }
 
@@ -41,8 +38,8 @@ namespace Final_AppDP.Classes.LoggerClasses.Logs
 
         public void Close()
         {
-            number_references--;
-            if (number_references == 0)
+            fileInstances--;
+            if (fileInstances == 0)
                 sw.Close();
             
         }

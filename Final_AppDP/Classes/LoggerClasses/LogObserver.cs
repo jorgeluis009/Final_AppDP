@@ -9,8 +9,8 @@ namespace Final_AppDP
 {
     public abstract class LogObserver
     {
-        public int IdLog { get; set; }
-        public string LogName { get; set; }
+        public int Log_ID { get; set; }
+        public string Log_Name { get; set; }
 
         public abstract void ConcreteLog(LogObject log);
 

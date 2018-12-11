@@ -10,26 +10,24 @@ namespace Final_AppDP.Classes.LoggerClasses
 {
     class TextBoxClass : LogManager
     {
-        private static TextBoxClass textbox_singleton = null;
+        private static TextBoxClass singleTextBox = null;
 
-        private TextBoxClass()
-        {
-        }
+        private TextBoxClass(){}
 
         public static TextBoxClass GetReference()
         {
-            if (textbox_singleton == null)
+            if (singleTextBox == null)
             {
-                textbox_singleton = new TextBoxClass();
+                singleTextBox = new TextBoxClass();
             } 
 
-            return textbox_singleton;
+            return singleTextBox;
         }
 
         public void Show()
         {
-            referencesCount++;
-            if (referencesCount == 1)
+            instanceCount++;
+            if (instanceCount == 1)
             {
                 form = new txtBoxForm();
                 form.Show();

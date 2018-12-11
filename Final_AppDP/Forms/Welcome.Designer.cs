@@ -80,7 +80,7 @@
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStores.Location = new System.Drawing.Point(219, 41);
             this.dgvStores.Name = "dgvStores";
-            this.dgvStores.Size = new System.Drawing.Size(376, 438);
+            this.dgvStores.Size = new System.Drawing.Size(376, 430);
             this.dgvStores.TabIndex = 5;
             // 
             // TopPanel
@@ -170,7 +170,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 456);
+            this.panel1.Size = new System.Drawing.Size(200, 448);
             this.panel1.TabIndex = 9;
             // 
             // btnLogOptions
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(608, 491);
+            this.ClientSize = new System.Drawing.Size(608, 483);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.dgvStores);

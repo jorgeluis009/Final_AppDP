@@ -9,32 +9,29 @@ namespace Final_AppDP.Classes
 {
     public static class Logger
     {
-        private static BindingList<LogObserver> _log = new BindingList<LogObserver>();
+        private static BindingList<LogObserver> logsList = new BindingList<LogObserver>();
 
         public static void Add(LogObserver NewObserver)
         {
-            _log.Add(NewObserver);
+            logsList.Add(NewObserver);
         }
 
         public static void RemoveLogs()
         {
-            foreach (var LogManager in _log)
-            {
-                LogManager.Close();
-            }
-            _log.Clear();
+            foreach (var LogManager in logsList) LogManager.Close();
+            logsList.Clear();
         }
 
         public static void DeleteLog(int id)
         {
-            LogObserver log_observer = _log.FirstOrDefault(x => x.IdLog == id);
+            LogObserver log_observer = logsList.FirstOrDefault(x => x.Log_ID == id);
             log_observer.Close();
-            _log.Remove(log_observer);
+            logsList.Remove(log_observer);
         }
 
         public static void Log(string LogMessage)
         {
-            foreach (var LogManager in _log)
+            foreach (var LogManager in logsList)
             {
                 LogManager.ConcreteLog(new LogObject(DateTime.Now, LogMessage));
             }
@@ -43,7 +40,7 @@ namespace Final_AppDP.Classes
         public static List<int> GetIds()
         {
             List<int> _ids = new List<int>();
-            foreach (var LogManager in _log)
+            foreach (var LogManager in logsList)
             {
                 _ids.Add(LogManager.GetId());
             }
@@ -52,7 +49,7 @@ namespace Final_AppDP.Classes
 
         public static BindingList<LogObserver> GetBindingList()
         {
-            return _log;
+            return logsList;
         }
     }
 }

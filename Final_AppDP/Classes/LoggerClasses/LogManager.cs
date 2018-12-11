@@ -9,13 +9,13 @@ namespace Final_AppDP.Classes.LoggerClasses
 {
     abstract class LogManager
     {
-            protected int referencesCount { get; set; }
+            protected int instanceCount { get; set; }
             protected Form form { get; set; }
 
             public void Close()
             {
-                if (referencesCount == 1) form.Close();
-                referencesCount--;
+                if (instanceCount == 1) form.Close();
+                instanceCount--;
             }
         
     }

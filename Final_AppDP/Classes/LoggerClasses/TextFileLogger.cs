@@ -13,8 +13,8 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public TextFileLogger()
         {
-            IdLog = 0;
-            LogName = "File Log";
+            Log_ID = 0;
+            Log_Name = "File Log";
             logElement = TextFileClass.GetReference();
         }
 
@@ -30,7 +30,7 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public override int GetId()
         {
-            return IdLog;
+            return Log_ID;
         }
     }
 }

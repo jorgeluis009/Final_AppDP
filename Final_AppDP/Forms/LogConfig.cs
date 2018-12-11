@@ -36,8 +36,16 @@ namespace Final_AppDP
 
         private void LogConfig_Load(object sender, EventArgs e)
         {
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn
+            {
+                Name = "Delete_Log",
+                Text = "Delete",
+                UseColumnTextForButtonValue = true
+            };
+
             dgvLog.DataSource = Logger.GetBindingList();
-            dgvLog.Columns["LogName"].Width = 125;
+            dgvLog.Columns.Add(btnColumn);
+            dgvLog.Columns["Log_Name"].Width = 120;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -80,6 +88,15 @@ namespace Final_AppDP
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void dgvLog_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvLog.Columns["Delete_Log"].Index)
+            {
+                int LogId = Convert.ToInt32(dgvLog.Rows[e.RowIndex].Cells["Log_ID"].Value);
+                Logger.DeleteLog(LogId);
+            }
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public DataGridLogger()
         {
-            IdLog = 2;
-            LogName = "DataGridView Log";
+            Log_ID = 2;
+            Log_Name = "DataGridView Log";
             aux = DataGridClass.GetReference();
             aux.Show();
         }
@@ -30,7 +30,7 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public override int GetId()
         {
-            return IdLog;
+            return Log_ID;
         }
     }
 }

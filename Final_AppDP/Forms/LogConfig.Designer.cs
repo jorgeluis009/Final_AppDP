@@ -52,9 +52,10 @@
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(18, 234);
+            this.button1.Location = new System.Drawing.Point(13, 51);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 97);
+            this.button1.Size = new System.Drawing.Size(169, 119);
             this.button1.TabIndex = 0;
             this.button1.Text = "File Log";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -66,9 +67,10 @@
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(284, 234);
+            this.button2.Location = new System.Drawing.Point(13, 305);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 97);
+            this.button2.Size = new System.Drawing.Size(169, 119);
             this.button2.TabIndex = 1;
             this.button2.Text = "TextBox";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -80,9 +82,10 @@
             // 
             this.button3.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(151, 234);
+            this.button3.Location = new System.Drawing.Point(13, 178);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 97);
+            this.button3.Size = new System.Drawing.Size(169, 119);
             this.button3.TabIndex = 2;
             this.button3.Text = "DataGrid";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -93,17 +96,20 @@
             // dgvLog
             // 
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLog.Location = new System.Drawing.Point(18, 54);
+            this.dgvLog.Location = new System.Drawing.Point(197, 51);
+            this.dgvLog.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLog.Name = "dgvLog";
-            this.dgvLog.Size = new System.Drawing.Size(394, 174);
+            this.dgvLog.Size = new System.Drawing.Size(492, 373);
             this.dgvLog.TabIndex = 3;
+            this.dgvLog.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLog_CellContentClick);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(162, 350);
+            this.button4.Location = new System.Drawing.Point(288, 459);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 29);
+            this.button4.Size = new System.Drawing.Size(124, 36);
             this.button4.TabIndex = 4;
             this.button4.Text = "Ok";
             this.button4.UseVisualStyleBackColor = true;
@@ -119,8 +125,9 @@
             this.TopPanel.Controls.Add(this.btnClose);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Margin = new System.Windows.Forms.Padding(4);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(422, 35);
+            this.TopPanel.Size = new System.Drawing.Size(703, 43);
             this.TopPanel.TabIndex = 13;
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             // 
@@ -129,9 +136,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(12, 6);
+            this.label4.Location = new System.Drawing.Point(16, 7);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 25);
+            this.label4.Size = new System.Drawing.Size(170, 33);
             this.label4.TabIndex = 10;
             this.label4.Text = "Log Options";
             // 
@@ -140,9 +148,10 @@
             this.btnExitFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExitFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExitFullScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnExitFullScreen.Image")));
-            this.btnExitFullScreen.Location = new System.Drawing.Point(355, 7);
+            this.btnExitFullScreen.Location = new System.Drawing.Point(613, 9);
+            this.btnExitFullScreen.Margin = new System.Windows.Forms.Padding(4);
             this.btnExitFullScreen.Name = "btnExitFullScreen";
-            this.btnExitFullScreen.Size = new System.Drawing.Size(24, 24);
+            this.btnExitFullScreen.Size = new System.Drawing.Size(32, 30);
             this.btnExitFullScreen.TabIndex = 3;
             this.btnExitFullScreen.TabStop = false;
             this.btnExitFullScreen.Visible = false;
@@ -152,9 +161,10 @@
             this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(323, 7);
+            this.btnMinimize.Location = new System.Drawing.Point(571, 9);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimize.Size = new System.Drawing.Size(32, 30);
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
@@ -164,9 +174,10 @@
             this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFullScreen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFullScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnFullScreen.Image")));
-            this.btnFullScreen.Location = new System.Drawing.Point(354, 7);
+            this.btnFullScreen.Location = new System.Drawing.Point(612, 9);
+            this.btnFullScreen.Margin = new System.Windows.Forms.Padding(4);
             this.btnFullScreen.Name = "btnFullScreen";
-            this.btnFullScreen.Size = new System.Drawing.Size(24, 24);
+            this.btnFullScreen.Size = new System.Drawing.Size(32, 30);
             this.btnFullScreen.TabIndex = 1;
             this.btnFullScreen.TabStop = false;
             // 
@@ -175,18 +186,19 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(385, 7);
+            this.btnClose.Location = new System.Drawing.Point(653, 9);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(24, 24);
+            this.btnClose.Size = new System.Drawing.Size(32, 30);
             this.btnClose.TabIndex = 0;
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // LogConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 392);
+            this.ClientSize = new System.Drawing.Size(703, 508);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dgvLog);
@@ -194,6 +206,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogConfig";
             this.Text = "LogConfig";
             this.Load += new System.EventHandler(this.LogConfig_Load);

@@ -31,16 +31,7 @@ namespace Final_AppDP.Forms
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
-
-        private void DataGridLogForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvLog_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        private void DataGridLogForm_Load(object sender, EventArgs e){}
 
         public void AddLog(LogObject Log)
         {

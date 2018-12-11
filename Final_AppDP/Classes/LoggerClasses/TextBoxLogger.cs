@@ -12,8 +12,8 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public TextBoxLogger()
         {
-            IdLog = 1;
-            LogName = "Textbox Log";
+            Log_ID = 1;
+            Log_Name = "Textbox Log";
             textBoxClass = TextBoxClass.GetReference();
             textBoxClass.Show();
         }
@@ -30,7 +30,7 @@ namespace Final_AppDP.Classes.LoggerClasses
 
         public override int GetId()
         {
-            return IdLog;
+            return Log_ID;
         }
     }
 }
